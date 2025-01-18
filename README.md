@@ -6,10 +6,10 @@ Receipt Processor is a web service designed to process receipt data and calculat
 
 ## **Table of Contents**
 - [Overview](#overview)
+- [Setup and Run Instructions](#setup-and-run-instructions)
 - [API Endpoints](#api-endpoints)
 - [Validation Rules](#validation-rules)
 - [Points Calculation Rules](#points-calculation-rules)
-- [Setup and Run Instructions](#setup-and-run-instructions)
 - [Examples](#examples)
 
 ---
@@ -18,6 +18,31 @@ Receipt Processor is a web service designed to process receipt data and calculat
 
 This service processes receipts to generate a unique ID for each receipt, calculates reward points based on predefined rules, and allows retrieval of the calculated points. It is built using the Gin framework and supports only in-memory storage.
 
+---
+
+## **Setup and Run Instructions**
+
+### **Prerequisites**
+- Go 1.19+ installed on your system.
+
+### **Steps to Run**
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/SwarajsingPatil/fetch-rewards-receipt-processor-challenge.git
+   cd fetch-rewards-receipt-processor-challenge
+   ```
+
+2. Install dependencies:
+   ```bash
+   go mod tidy
+   ```
+
+3. Run the application:
+   ```bash
+   go run cmd/api/main.go
+   ```
+
+4. Access the API at `http://localhost:8080`.
 ---
 
 ## **API Endpoints**
@@ -133,31 +158,6 @@ Points are awarded based on the following rules:
 5. **Purchase Time**:
    - 10 points if the time is after 2:00 PM and before 4:00 PM.
 
----
-
-## **Setup and Run Instructions**
-
-### **Prerequisites**
-- Go 1.19+ installed on your system.
-
-### **Steps to Run**
-1. Clone the repository:
-   ```bash
-   git clone <repository-url>
-   cd receipt-processor
-   ```
-
-2. Install dependencies:
-   ```bash
-   go mod tidy
-   ```
-
-3. Run the application:
-   ```bash
-   go run cmd/api/main.go
-   ```
-
-4. Access the API at `http://localhost:8080`.
 
 ---
 
@@ -202,6 +202,6 @@ GET /receipts/7fb1377b-b223-49d9-a31a-5a02701dd310/points HTTP/1.1
 
 ## **Notes**
 - Data is stored in memory and will reset when the application restarts.
-- Refer to `api.yml` for a formal API definition.
+- Refer to [api.yml](https://github.com/fetch-rewards/receipt-processor-challenge/blob/main/api.yml) for a formal API definition.
 
 ---

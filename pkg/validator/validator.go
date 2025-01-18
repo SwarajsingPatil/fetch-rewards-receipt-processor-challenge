@@ -154,15 +154,12 @@ func (v *Validator) validateItems(items []models.Item) {
 		v.addError("Receipt must include at least one item")
 		return
 	}
-
+	validDesc := regexp.MustCompile(`^[\w\s\-]+$`)
 	for i, item := range items {
 		// Short description validation
 		if strings.TrimSpace(item.ShortDescription) == "" {
 			v.addError("Item short description cannot be empty")
-		}
-
-		validDesc := regexp.MustCompile(`^[\w\s\-]+$`)
-		if !validDesc.MatchString(item.ShortDescription) {
+		} else if !validDesc.MatchString(item.ShortDescription) {
 			v.addError("Item short description contains invalid characters")
 		}
 
