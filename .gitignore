@@ -18,7 +18,6 @@ Thumbs.db
 
 
 go.sum
-go.mod
 
 *.o
 *.a
